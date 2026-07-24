@@ -1,6 +1,7 @@
 class_name CustomButton
 extends TextureButton
 
+<<<<<<< Updated upstream
 @export var frame1: Texture2D
 @export var frame2: Texture2D
 @export var frame3: Texture2D
@@ -25,11 +26,29 @@ func _ready() -> void:
 	pivot_offset = size / 2.0
 
 	# Connect button signals
+=======
+# Exported variables show up directly in the Godot Inspector
+@export var normal_texture: Texture2D
+@export var pressed_texture: Texture2D
+
+func _ready() -> void:
+	# Assign textures
+	if normal_texture:
+		texture_normal = normal_texture
+	if pressed_texture:
+		texture_pressed = pressed_texture
+		
+	# Automatically calculate center pivot point for smooth scaling
+	pivot_offset = size / 2.0
+	
+	# Connect built-in button signals for press state and hover animations
+>>>>>>> Stashed changes
 	button_down.connect(_on_button_down)
 	button_up.connect(_on_button_up)
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 
+<<<<<<< Updated upstream
 # --- FRAME ANIMATION LOGIC ---
 
 # Play forward frames (1 -> 5) while holding down
@@ -55,10 +74,27 @@ func _set_frame_by_index(index: int) -> void:
 
 # --- HOVER ANIMATION LOGIC ---
 
+=======
+# When holding mouse button down: switches to pressed image
+func _on_button_down() -> void:
+	if pressed_texture:
+		texture_normal = pressed_texture
+
+# When mouse released: swaps back to normal texture
+func _on_button_up() -> void:
+	if normal_texture:
+		texture_normal = normal_texture
+
+# Smooth scale-up on hover
+>>>>>>> Stashed changes
 func _on_mouse_entered() -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1.05, 1.05), 0.1).set_trans(Tween.TRANS_SINE)
 
+<<<<<<< Updated upstream
+=======
+# Scale back to normal on exit
+>>>>>>> Stashed changes
 func _on_mouse_exited() -> void:
 	var tween: Tween = create_tween()
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 0.1).set_trans(Tween.TRANS_SINE)
