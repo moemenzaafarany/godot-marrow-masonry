@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cw6e7nxitcgoi"]
+
+[ext_resource type="Script" uid="uid://du3lqpxjb30m3" path="res://game/entities/humanoid/humanoid_appearance.gd" id="1_ejmpf"]
+[ext_resource type="Script" uid="uid://cmlqnl7nftsbn" path="res://game/entities/base/voxel_part_slot.gd" id="2_alu7o"]
+
+[node name="HumanoidAppearance" type="Node3D" unique_id=533843120]
+script = ExtResource("1_ejmpf")
+
+[node name="Torso" type="Node3D" parent="." unique_id=1732928677]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+script = ExtResource("2_alu7o")
+slot_offset = Vector3(0, 0.8, 0)
+metadata/_custom_type_script = "uid://cmlqnl7nftsbn"
+
+[node name="Head" type="Node3D" parent="Torso" unique_id=1692650533]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+script = ExtResource("2_alu7o")
+slot_offset = Vector3(0, 0.5, 0)
+metadata/_custom_type_script = "uid://cmlqnl7nftsbn"
+
+[node name="Hair" type="Node3D" parent="Torso/Head" unique_id=222624758]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.2, 0)
+script = ExtResource("2_alu7o")
+slot_offset = Vector3(0, 0.2, 0)
+metadata/_custom_type_script = "uid://cmlqnl7nftsbn"
+
+[node name="Eyes" type="Node3D" parent="Torso/Head" unique_id=630899898]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.15)
+script = ExtResource("2_alu7o")
+slot_offset = Vector3(0, 0.05, -0.15)
+metadata/_custom_type_script = "uid://cmlqnl7nftsbn"
+
+[node name="LeftEar" type="Node3D" parent="Torso/Head" unique_id=1435702944]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.2, 0, 0)
+script = ExtResource("2_alu7o")
+slot_offset = Vector3(-0.2, 0, 0)
+metadata/_custom_type_script = "uid://cmlqnl7nftsbn"
+
+[node name="RightEar" type="Node3D" parent="Torso/Head" unique_id=1181903683]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.2, 0, 0)
+script = ExtResource("2_alu7o")
+slot_offset = Vector3(0.2, 0, 0)
+metadata/_custom_type_script = "uid://cmlqnl7nftsbn"
+
+[node name="LeftHand" type="Node3D" parent="Torso" unique_id=841152647]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42, 0.15, -0.1)
+script = ExtResource("2_alu7o")
+slot_offset = Vector3(-0.42, 0.15, -0.1)
+metadata/_custom_type_script = "uid://cmlqnl7nftsbn"
+
+[node name="RightHand" type="Node3D" parent="Torso" unique_id=686334798]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42, 0.15, -0.1)
+script = ExtResource("2_alu7o")
+slot_offset = Vector3(0.42, 0.15, -0.1)
+metadata/_custom_type_script = "uid://cmlqnl7nftsbn"
+
+[node name="LeftFoot" type="Node3D" parent="Torso" unique_id=518495160]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16, -0.68, 0)
+script = ExtResource("2_alu7o")
+slot_offset = Vector3(-0.16, -0.68, 0)
+metadata/_custom_type_script = "uid://cmlqnl7nftsbn"
+
+[node name="RightFoot" type="Node3D" parent="Torso" unique_id=147522972]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, -0.68, 0)
+script = ExtResource("2_alu7o")
+slot_offset = Vector3(0.16, -0.68, 0)
+metadata/_custom_type_script = "uid://cmlqnl7nftsbn"

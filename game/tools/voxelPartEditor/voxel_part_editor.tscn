@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://d3s022jagti2f"]
+
+[ext_resource type="Script" uid="uid://bchomo876ie3n" path="res://game/tools/voxelPartEditor/voxel_part_editor.gd" id="1_3w1uv"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_3w1uv"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_3uu8b"]
+sky_material = SubResource("ProceduralSkyMaterial_3w1uv")
+
+[sub_resource type="Environment" id="Environment_4yxcu"]
+background_mode = 2
+sky = SubResource("Sky_3uu8b")
+
+[node name="VoxelPartEditor" type="Node3D" unique_id=1550250365 node_paths=PackedStringArray("slot_option_button", "file_name_input", "color_picker", "erase_mode_button", "save_button")]
+script = ExtResource("1_3w1uv")
+slot_option_button = NodePath("UI/HBoxContainer/SlotOptionButton")
+file_name_input = NodePath("UI/HBoxContainer/FileNameEdit")
+color_picker = NodePath("UI/HBoxContainer/ColorPickerButton")
+erase_mode_button = NodePath("UI/HBoxContainer/EraserButton")
+save_button = NodePath("UI/HBoxContainer/SaveButton")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1067143096]
+environment = SubResource("Environment_4yxcu")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1903996964]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=1172077686]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1355541662]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.5)
+
+[node name="VoxelMeshInstance" type="MeshInstance3D" parent="." unique_id=1171338650]
+
+[node name="UI" type="Control" parent="." unique_id=503182915]
+layout_mode = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 40.0
+grow_horizontal = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI" unique_id=816526701]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -96.0
+offset_top = -20.0
+offset_right = 96.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="EraserButton" type="Button" parent="UI/HBoxContainer" unique_id=1357433256]
+layout_mode = 2
+text = "Eraser"
+
+[node name="ColorPickerButton" type="ColorPickerButton" parent="UI/HBoxContainer" unique_id=968957142]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="FileNameEdit" type="LineEdit" parent="UI/HBoxContainer" unique_id=351884369]
+layout_mode = 2
+
+[node name="SaveButton" type="Button" parent="UI/HBoxContainer" unique_id=829359827]
+layout_mode = 2
+text = "Save"
+
+[node name="SlotOptionButton" type="OptionButton" parent="UI/HBoxContainer" unique_id=1792960198]
+layout_mode = 2

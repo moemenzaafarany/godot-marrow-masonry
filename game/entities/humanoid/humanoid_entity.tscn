@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://6c7kmqrd7ntx"]
 
 [ext_resource type="Script" uid="uid://doxtre8qk082d" path="res://game/entities/humanoid/humanoid_entity.gd" id="1_1xync"]
-[ext_resource type="PackedScene" uid="uid://cw6e7nxitcgoi" path="res://game/entities/humanoid/appearance/humanoid_appearance.tscn" id="2_26y3f"]
+[ext_resource type="PackedScene" uid="uid://cw6e7nxitcgoi" path="res://game/entities/humanoid/humanoid_appearance.tscn" id="2_26y3f"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1xync"]
 properties/0/path = NodePath(".:position")
