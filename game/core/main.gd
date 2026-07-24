@@ -3,7 +3,7 @@ extends Node
 @export var world_scene: PackedScene = preload("res://game/core/world/world.tscn")
 
 @onready var ui_layer: CanvasLayer = $UILayer
-#@onready var main_menu_ui: Control = $UILayer/MainMenu
+@onready var main_menu_ui: Control = $UILayer/TempLobbyUI
 @onready var world_container: Node3D = $WorldContainer
 
 func _ready() -> void:
@@ -13,7 +13,7 @@ func _ready() -> void:
 
 func _load_world() -> void:
 	# Hide the menu UI once connected
-	#main_menu_ui.hide()
+	main_menu_ui.hide()
 	
 	# Instantiate world if not already loaded
 	if world_container.get_child_count() == 0:
