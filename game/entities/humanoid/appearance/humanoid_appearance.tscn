@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cw6e7nxitcgoi"]
+
+[ext_resource type="Script" uid="uid://du3lqpxjb30m3" path="res://game/entities/humanoid/appearance/humanoid_appearance.gd" id="1_ejmpf"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rwnl7"]
+size = Vector3(0.4, 0.4, 0.4)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ejmpf"]
+size = Vector3(0.5, 0.7, 0.3)
+
+[sub_resource type="BoxMesh" id="BoxMesh_u5032"]
+size = Vector3(0.18, 0.18, 0.18)
+
+[sub_resource type="BoxMesh" id="BoxMesh_ihyjm"]
+size = Vector3(0.18, 0.18, 0.18)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e6o0n"]
+size = Vector3(0.16, 0.16, 0.16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_mxfic"]
+size = Vector3(0.16, 0.16, 0.16)
+
+[sub_resource type="BoxMesh" id="BoxMesh_nf7hf"]
+size = Vector3(0.2, 0.14, 0.28)
+
+[sub_resource type="BoxMesh" id="BoxMesh_j5bkh"]
+size = Vector3(0.2, 0.14, 0.28)
+
+[node name="HumanoidAppearance" type="Node3D" unique_id=1331824489]
+script = ExtResource("1_ejmpf")
+
+[node name="Skeleton" type="Skeleton3D" parent="." unique_id=302621380]
+
+[node name="Head" type="MeshInstance3D" parent="Skeleton" unique_id=462339121]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+mesh = SubResource("BoxMesh_rwnl7")
+
+[node name="Face" type="MeshInstance3D" parent="Skeleton/Head" unique_id=445403750]
+
+[node name="Torso" type="MeshInstance3D" parent="Skeleton" unique_id=1981156065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("BoxMesh_ejmpf")
+
+[node name="LeftShoulder" type="MeshInstance3D" parent="Skeleton/Torso" unique_id=436911515]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.32, 0.25, 0)
+mesh = SubResource("BoxMesh_u5032")
+
+[node name="RightShoulder" type="MeshInstance3D" parent="Skeleton/Torso" unique_id=1201862207]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.32, 0.25, 0)
+mesh = SubResource("BoxMesh_ihyjm")
+
+[node name="LeftHand" type="Node3D" parent="Skeleton" unique_id=323508818]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.42, 0.95, -0.1)
+
+[node name="LeftHandMesh" type="MeshInstance3D" parent="Skeleton/LeftHand" unique_id=837560263]
+mesh = SubResource("BoxMesh_e6o0n")
+
+[node name="RightHand" type="Node3D" parent="Skeleton" unique_id=1847512819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42, 0.95, -0.1)
+
+[node name="RightHandMesh" type="MeshInstance3D" parent="Skeleton/RightHand" unique_id=1889664462]
+mesh = SubResource("BoxMesh_mxfic")
+
+[node name="LeftFoot" type="Node3D" parent="Skeleton" unique_id=1504835699]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.16, 0.12, 0)
+
+[node name="LeftFootMesh" type="MeshInstance3D" parent="Skeleton/LeftFoot" unique_id=1625721118]
+mesh = SubResource("BoxMesh_nf7hf")
+
+[node name="RightFoot" type="Node3D" parent="Skeleton" unique_id=349959124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.16, 0.12, 0)
+
+[node name="RightFootMesh" type="MeshInstance3D" parent="Skeleton/RightFoot" unique_id=472098854]
+mesh = SubResource("BoxMesh_j5bkh")

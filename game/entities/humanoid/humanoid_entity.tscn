@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://6c7kmqrd7ntx"]
+
+[ext_resource type="Script" uid="uid://doxtre8qk082d" path="res://game/entities/humanoid/humanoid_entity.gd" id="1_1xync"]
+[ext_resource type="PackedScene" uid="uid://cw6e7nxitcgoi" path="res://game/entities/humanoid/appearance/humanoid_appearance.tscn" id="2_26y3f"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_sqplk"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_1xync"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+
+[node name="HumanoidEntity" type="CharacterBody3D" unique_id=1377790295]
+script = ExtResource("1_1xync")
+
+[node name="MovementCollider" type="CollisionShape3D" parent="." unique_id=1383042303]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_sqplk")
+
+[node name="AppearanceContainer" type="Node3D" parent="." unique_id=492550229]
+
+[node name="HumanoidAppearance" parent="AppearanceContainer" unique_id=1331824489 instance=ExtResource("2_26y3f")]
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1992440083]
+replication_config = SubResource("SceneReplicationConfig_1xync")
+
+[node name="CameraPivot" type="Node3D" parent="." unique_id=689641280]
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot" unique_id=1386922217]
+transform = Transform3D(1, 0, 0, 0, 0.9396926, 0.34202012, 0, -0.34202012, 0.9396926, 0, 2.5, 4)

@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://cgamgtsplcnw3"]
+
+[ext_resource type="Script" uid="uid://mxgwit0rvqvi" path="res://game/core/world/world.gd" id="1_7xv4f"]
+[ext_resource type="Texture2D" uid="uid://b7hchcbupbrbm" path="res://assets/textures/grids/texture_10.png" id="1_cu6en"]
+[ext_resource type="Texture2D" uid="uid://tfqe7uu8te3x" path="res://assets/textures/grids/texture_07.png" id="1_j8phx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7xv4f"]
+sky_top_color = Color(0.21881679, 0.43482733, 0.80074, 1)
+sky_horizon_color = Color(0.7128818, 0.6372754, 0.75903445, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0.7137255, 0.6392157, 0.7607843, 1)
+ground_curve = 0.1545498
+
+[sub_resource type="Sky" id="Sky_modbx"]
+sky_material = SubResource("ProceduralSkyMaterial_7xv4f")
+
+[sub_resource type="Environment" id="Environment_66hs8"]
+background_mode = 2
+sky = SubResource("Sky_modbx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dyjs5"]
+albedo_texture = ExtResource("1_cu6en")
+uv1_scale = Vector3(10, 10, 10)
+
+[sub_resource type="PrismMesh" id="PrismMesh_sqplk"]
+material = SubResource("StandardMaterial3D_dyjs5")
+left_to_right = 2.0
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cu6en"]
+points = PackedVector3Array(1.5, 0.5, 0.5, 1.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dyjs5"]
+size = Vector3(1000, 0.1, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_evifk"]
+albedo_texture = ExtResource("1_j8phx")
+uv1_scale = Vector3(10000, 10000, 10000)
+
+[sub_resource type="BoxMesh" id="BoxMesh_sqplk"]
+material = SubResource("StandardMaterial3D_evifk")
+size = Vector3(1000, 0.1, 1000)
+
+[node name="World" type="Node3D" unique_id=1777223204]
+script = ExtResource("1_7xv4f")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=2019134626]
+environment = SubResource("Environment_66hs8")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=89341181]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Ramp" type="StaticBody3D" parent="." unique_id=205531632]
+transform = Transform3D(0.8324097, 0, -0.5541607, 0, 1, 0, 0.5541607, 0, 0.8324097, 0.90685487, 0.3827434, 0.87306833)
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Ramp" unique_id=279809477]
+mesh = SubResource("PrismMesh_sqplk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ramp" unique_id=2118579057]
+shape = SubResource("ConvexPolygonShape3D_cu6en")
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1281225363]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=116335269]
+shape = SubResource("BoxShape3D_dyjs5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=1003371351]
+mesh = SubResource("BoxMesh_sqplk")
+
+[node name="Players" type="Node3D" parent="." unique_id=1222457952]
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=565002370]
+_spawnable_scenes = PackedStringArray("uid://6c7kmqrd7ntx")
+spawn_path = NodePath("../Players")

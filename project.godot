@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Marrow & Masonry"
+run/main_scene="uid://bdvq102tlwkj8"
 config/features=PackedStringArray("4.7", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+NetworkManager="*uid://cqemfo4wcoi2t"
 
 [physics]
 

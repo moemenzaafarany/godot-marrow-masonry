@@ -1,9 +1,3 @@
-Coming from building smaller 1–3 scene projects into tackling a massive hybrid like *Stonehearth* with large-scale war, multiplayer, and body-part dynamics can feel like standing at the base of Mount Everest.
-
-Because you want to build this natively using **Godot's built-in blocky primitives** (avoiding Blender) while keeping it customizable, modular, and networked, jumping straight into advanced mechanics will result in overwhelm.
-
-Below is a structured, step-by-step roadmap to build *Marrow & Masonry* without burning out.
-
 ---
 
 ## 🏗️ The 5-Phase Project Roadmap
