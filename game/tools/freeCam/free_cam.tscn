@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://s8gny8tsfh6a"]
+
+[ext_resource type="Script" uid="uid://daho67eurgyok" path="res://game/tools/freeCam/free_cam.gd" id="1_swnka"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sqplk"]
+
+[node name="FreeCam" type="CharacterBody3D" unique_id=535223790]
+script = ExtResource("1_swnka")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=591393601]
+shape = SubResource("SphereShape3D_sqplk")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=169510474]
+current = true

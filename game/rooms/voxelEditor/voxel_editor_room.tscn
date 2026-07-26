@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://d2u5i7poeyoko"]
+
+[ext_resource type="Texture2D" uid="uid://tfqe7uu8te3x" path="res://assets/textures/grids/texture_07.png" id="1_vqlrd"]
+[ext_resource type="PackedScene" uid="uid://s8gny8tsfh6a" path="res://game/tools/freeCam/free_cam.tscn" id="2_gg2vi"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gg2vi"]
+shading_mode = 0
+albedo_texture = ExtResource("1_vqlrd")
+uv1_scale = Vector3(25, 25, 25)
+
+[node name="VoxelEditorRoom" type="Node3D" unique_id=655659377]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=76126230]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="Room" type="CSGBox3D" parent="." unique_id=1831289604]
+material_override = SubResource("StandardMaterial3D_gg2vi")
+cast_shadow = 0
+use_collision = true
+size = Vector3(100, 50, 100)
+metadata/_edit_lock_ = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Room" unique_id=117237621]
+operation = 2
+size = Vector3(99, 49, 99)
+
+[node name="FreeCam" parent="." unique_id=535223790 instance=ExtResource("2_gg2vi")]
+enable_collision = true
